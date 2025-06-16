@@ -9,27 +9,6 @@ Edit your west.yml file found in your zmk-config's config directory to add the d
 ```
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
-    - name: petejoganson
-      url-base: https://github.com/petejohanson
-    - name: grassfedreeve
-      url-base: https://github.com/grassfedreeve
-  projects:
-    - name: zmk
-      remote: zmkfirmware
-      revision: main
-      import: app/west.yml
-    - name: ec-support-zmk-module
-      remote: petejohanson
-      revision: main
-    - name: zmk-keyboards-katori
-      remote: grassfedreeve
-      revision: main
-
-
-manifest:
-  remotes:
     - name: ph
       url-base: https://github.com/phuertay
   projects:
