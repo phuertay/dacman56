@@ -1,11 +1,46 @@
-# ZMK Module Template
+# dacman56 ZMK Module
 
-This repository contains a template for a ZMK module, as it would most frequently be used. 
+This repository contains the shield files for a Dactyl Manufold 5×6 to allow users to build firmware. This can be done by adding the module to the west.yml found in your zmk-config's config directory. There is a full guide available for this here: [ZMK Modules Doc](https://zmk.dev/docs/features/modules)
 
 ## Usage
 
-Read through the [ZMK Module Creation](https://zmk.dev/docs/development/module-creation) page for details on how to configure this template.
+Edit your west.yml file found in your zmk-config's config directory to add the dacman56 module. Example:
 
-## More Info
+```
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: petejoganson
+      url-base: https://github.com/petejohanson
+    - name: grassfedreeve
+      url-base: https://github.com/grassfedreeve
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
+    - name: ec-support-zmk-module
+      remote: petejohanson
+      revision: main
+    - name: zmk-keyboards-katori
+      remote: grassfedreeve
+      revision: main
 
-For more info on modules, you can read through  through the [Zephyr modules page](https://docs.zephyrproject.org/3.5.0/develop/modules.html) and [ZMK's page on using modules](https://zmk.dev/docs/features/modules). [Zephyr's west manifest page](https://docs.zephyrproject.org/3.5.0/develop/west/manifest.html#west-manifests) may also be of use.
+
+manifest:
+  remotes:
+    - name: ph
+      url-base: https://github.com/phuertay
+  projects:
+    - name: zmk
+      remote: ph
+      revision: main
+      import: app/west.yml
+    - name: zmk-keyboard-dacman56
+      remote: ph
+      revision: main
+  self:
+    path: config
+```
+Once you have the module added to your west.yml you can then build firmware as if it was in your config's shield directory or in ZMK main.
